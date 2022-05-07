@@ -2,10 +2,12 @@
 import cv2 
 import os 
 import matplotlib.pyplot as plt
+import csv
 
 img_path = input('Imsert image(s) path: ')
 
 coordinates = []
+
 
 def mouse_track(event, x, y, flags, param):
 
@@ -29,9 +31,17 @@ def open_img():
         
         cv2.imshow(images, image) 
         cv2.setMouseCallback(images, mouse_track) 
-        coordinates.append(images + ": ")
+        coordinates.append(images + ':')
         cv2.waitKey()
 
 open_img()
 
 print(coordinates)
+
+with open('Coordinates.csv', 'w') as file:
+        write = csv.writer(file)
+        write.writerow(coordinates)
+
+
+
+

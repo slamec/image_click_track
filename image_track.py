@@ -17,6 +17,6 @@ def open_img():
         plt.imshow(image)
         show = plt.show()
         
-    return show
+    # return show
 
 open_img()
